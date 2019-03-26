@@ -1,0 +1,29 @@
+{
+  "name": "shubham",
+  "version": "1.0.0",
+  "description": "hahahahah",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "shubham",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "download": "^7.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-progressbar": "^2.0.0",
+    "node-youtubedl": "^0.1.2",
+    "on-finished": "^2.3.0",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "request-progress": "^3.0.0",
+    "sync": "^0.2.5",
+    "youtube-dl": "^1.11.1"
+  }
+}

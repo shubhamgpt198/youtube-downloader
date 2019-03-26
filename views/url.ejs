@@ -1,0 +1,49 @@
+<html>
+
+    <%- include('head'); -%>
+
+<div class="container-fluid" >
+
+
+  </br></br>
+
+  <center> 
+      <h6 class="btn btn-success disabled" style="cursor:default"> You file is ready to download!!!</h6>  </br></br>
+
+      <div class="card">
+            <div class="card-body">
+      <p> If download doesn't start automatically. <a href="<%=uri%>"  > Click Here!!! </a> </p>
+      </div>
+    </div>
+<div id="myFile"> Test Click </div>
+  </center> 
+
+</div>
+
+<script type='text/javascript'>
+  var url = '<%= uri %>';
+  console.log(url);
+
+// execute this after the ajax request is complete
+
+var myFile = document.getElementById('myFile');
+var dataURI = url;
+setTimeout(function(){
+myFile.addEventListener("click", function(event){
+  event.preventDefault();
+  // check if href value exists
+  if(dataURI.length) {
+    var fileName = '<%= title %>'+'.mp4';
+    var link = document.createElement("a");
+    link.setAttribute("href", dataURI);
+    link.setAttribute("download", fileName);    
+    console.log(dataURI, fileName);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    delete link;
+  }
+});},1000);
+
+</script>
+</html>

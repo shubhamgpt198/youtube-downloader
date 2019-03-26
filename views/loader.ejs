@@ -1,0 +1,73 @@
+<!----
+//****************************************************************************//
+//**************** Created By:  Shubham Kumar Gupta *************************//
+//**************************************************************************// 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/css/mdb.min.css" rel="stylesheet">
+
+<title>YTD </title>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js"></script>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark danger-color">
+        <a class="navbar-brand" href="./">YouTube Downloader</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    </br>
+
+
+
+<div class="container-fluid" >
+  <center> <div class="card-body">
+    <img src="<%= thumb%>" class="img-fluid" style="width: 250px"></img>
+  </div> </center>
+
+  </br>
+
+ <center> <h4> <%= title%> </h4> 
+
+</center> </br>
+
+  <center> 
+      <h6> Choose Quality: </h6> </br>
+      <form  method="post" action="/down">
+        <% for (var i = 0; i < global.vinfo.formats.length; i++) { if(parseInt(global.vinfo.formats[i].format_id) <=132){  %>
+          <div class="list-group-item" style="width: 300px">
+              <label > <input type="radio" class="form-check-input" action="/down" name="choose" value="<%= i %>">
+                 <%= global.vinfo.formats[i].format %> </label> <label class="badge badge-primary"> <%= Math.round(global.vinfo.formats[i].filesize/1048576) %> MB </label>
+          </div>
+        <% }} %> 
+        </br>
+        <button class="btn btn-success"  type="submit" >  <i class="fas fa-download"> </i> Download </button>
+      </form>
+  </center> 
+</div>
